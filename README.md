@@ -107,7 +107,7 @@ We have integrated three APIs—Mempool, BlockCypher, and Electrum—into the pl
 
 ### Key and addresses
   - Private key
-    ```
+    ```dart
     // Create an EC private key instance from a WIF (Wallet Import Format) encoded string.
     final privateKey =
       ECPrivate.fromWif("cT33CWKwcV8afBs5NYzeSzeSoGETtAB8izjDjMEuGqyqPoF7fbQR", netVersion: BitcoinNetwork.mainnet.wifNetVer);
@@ -129,7 +129,7 @@ We have integrated three APIs—Mempool, BlockCypher, and Electrum—into the pl
     final toHex = privateKey.toHex();
     ```
 - Public key
-  ```
+  ```dart
   // Create an instance of an EC public key from a hexadecimal representation.
   final publicKey = ECPublic.fromHex('.....');
 
@@ -174,7 +174,7 @@ We have integrated three APIs—Mempool, BlockCypher, and Electrum—into the pl
   final verify = publicKey.verify();
   ```
 - Addresses
-  ```
+  ```dart
   final p2pkh = P2pkhAddress.fromAddress(
       address: "1Q5odQtVCc4PDmP5ncrp7DSuVbh2ML4Gnb",
       network: BitcoinNetwork.mainnet);
@@ -261,7 +261,7 @@ In the [example](https://github.com/mrtnetwork/bitcoin_base/tree/main/example/li
 
   supports the Bitcoin, Dogecoin, Dash, and Litecoin networks, allowing for easy creation and signing of various address types.
 
-  ```
+  ```dart
   /// connect to electrum service with websocket
   /// please see `services_examples` folder for how to create electrum websocket service
    final service =
@@ -426,7 +426,7 @@ In the [example](https://github.com/mrtnetwork/bitcoin_base/tree/main/example/li
   ForkedTransactionBuilder supports the BitcoinCash and bitcoinSV for easy creation and signing of various address types.
   For spending network amounts, it functions similarly to TransactionBuilder. However, in this example, the focus is on spending CashToken (BCH Feature). For minting, burning, and creating FTs (Fungible Tokens) and NFTs (Non-Fungible Tokens), you can refer to the [example folders](https://github.com/mrtnetwork/bitcoin_base/tree/main/example/lib/bitcoin_cash)
   
-  ```
+  ```dart
   /// connect to electrum service with websocket
   /// please see `services_examples` folder for how to create electrum websocket service
   final service = await ElectrumWebSocketService.connect(
@@ -562,7 +562,7 @@ In the [example](https://github.com/mrtnetwork/bitcoin_base/tree/main/example/li
 - With BtcTransaction
   - Spend P2TR UTXO
 
-    ```
+    ```dart
       // We define transaction inputs by specifying the transaction ID and index.
     final txin = utxo
         .map((e) => TxInput(txId: e.utxo.txHash, txIndex: e.utxo.vout))
@@ -633,7 +633,7 @@ In the [example](https://github.com/mrtnetwork/bitcoin_base/tree/main/example/li
     
     ```
   - Spend P2PKH UTXO
-    ```
+    ```dart
       // We define transaction inputs by specifying the transaction ID and index.
     final txin = utxo
         .map((e) => TxInput(txId: e.utxo.txHash, txIndex: e.utxo.vout))
@@ -677,7 +677,7 @@ In the [example](https://github.com/mrtnetwork/bitcoin_base/tree/main/example/li
 I haven't implemented any specific HTTP service or socket service within this plugin. The reason is that different applications may use various plugins or methods to interact with network protocols. However, I have included numerous examples to demonstrate how Electrum and HTTP services can be utilized. You can leverage these examples as a reference to easily create services tailored to your application's specific needs. [examples](https://github.com/mrtnetwork/bitcoin_base/tree/main/example/lib/services_examples)
 
 - Electrum API (Websocket, TCP, SSL)
-```
+```dart
   const network = BitcoinNetwork.mainnet;
 
   /// connect to electrum service with websocket
@@ -710,7 +710,7 @@ I haven't implemented any specific HTTP service or socket service within this pl
 ```
 
 - Explorer API (blockCypher, mempool)
-```
+```dart
   /// Define the blockchain network you want to work with, in this case, it's Bitcoin.
   const network = BitcoinNetwork.mainnet;
 
